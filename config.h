@@ -29,6 +29,7 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
+	"bash", "-c", "autorandr -c", NULL,
 	"xfce4-clipman", NULL,
 	"xfce4-power-manager", NULL,
 	"bash", "-c", "feh --bg-scale ~/Pictures/Wallpaper/wallpaper-02-Ys--The-Oath-in-Felghana-2560x1440.jpg", NULL,
@@ -51,6 +52,7 @@ static const Rule rules[] = {
 	{ "Thunderbird",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "discord",	  NULL,       NULL,       1 << 7,       0,           -1 },
 	{ "Antares",	  NULL,       NULL,       1 << 6,       0,           -1 },
+	{ "pavucontrol",  NULL,       NULL,       1 << 5,       0,           -1 },
 };
 
 /* layout(s) */
@@ -98,6 +100,8 @@ static const char *dmenucmd[] = { "rofi", "-show", "drun", "-m", dmenumon, "-fon
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *closecmd[] = { "kill -HUP dwm", NULL };
 static const char *browsercmd[] = { "flatpak", "run", "io.github.zen_browser.zen", NULL };
+static const char *lockcmd[] = { "xset", "s", "activate", NULL };
+static const char *suspendcmd[] = { "loginctl", "suspend", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -138,7 +142,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {.v = closecmd } },
 	{ MODKEY,			XK_b,	   spawn,	   {.v = browsercmd } },
-
+	{ MODKEY|ShiftMask,		XK_x,	   spawn,	   {.v = lockcmd } },
+	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   {.v = suspendcmd } },
 };
 
 /* button definitions */
