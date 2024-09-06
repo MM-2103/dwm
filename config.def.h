@@ -32,6 +32,7 @@ static const char *const autostart[] = {
 	"bash", "-c", "autorandr -c", NULL,
 	"xfce4-clipman", NULL,
 	"xfce4-power-manager", NULL,
+	"slstatus", NULL,
 	"bash", "-c", "feh --bg-scale ~/Pictures/Wallpaper/wallpaper-02-Ys--The-Oath-in-Felghana-2560x1440.jpg", NULL,
 	"bash", "-c", "picom --config ~/.config/picom/picom.conf", NULL,
 	"bash", "-c", "xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock", NULL,
