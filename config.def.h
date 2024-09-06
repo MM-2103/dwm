@@ -103,6 +103,7 @@ static const char *closecmd[] = { "kill -HUP dwm", NULL };
 static const char *browsercmd[] = { "flatpak", "run", "io.github.zen_browser.zen", NULL };
 static const char *lockcmd[] = { "xset", "s", "activate", NULL };
 static const char *suspendcmd[] = { "loginctl", "suspend", NULL };
+static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -145,6 +146,7 @@ static const Key keys[] = {
 	{ MODKEY,			XK_b,	   spawn,	   {.v = browsercmd } },
 	{ MODKEY|ShiftMask,		XK_x,	   spawn,	   {.v = lockcmd } },
 	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   {.v = suspendcmd } },
+	{0,				XK_Print,  spawn,	   {.v = screenshotcmd } },
 };
 
 /* button definitions */
