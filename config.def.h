@@ -37,7 +37,6 @@ static const char *const autostart[] = {
 	"bash", "-c", "picom --config ~/.config/picom/picom.conf", NULL,
 	"bash", "-c", "xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock", NULL,
 	"pipewire", NULL,
-	"bash", "-c", "dunst -conf ~/.config/dunst/dunstrc", NULL,
 	NULL /* terminate */
 };
 
