@@ -32,11 +32,11 @@ static const char *const autostart[] = {
 	"bash", "-c", "autorandr -c", NULL,
 	"xfce4-clipman", NULL,
 	"xfce4-power-manager", NULL,
+	"bash", "-c", "/usr/lib/xfce4/notifyd/xfce4-notifyd", NULL,
+	"slstatus", NULL,
 	"bash", "-c", "feh --bg-scale ~/Pictures/Wallpaper/wallpaper-02-Ys--The-Oath-in-Felghana-2560x1440.jpg", NULL,
 	"bash", "-c", "picom --config ~/.config/picom/picom.conf", NULL,
-	"bash", "-c", "xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock", NULL,
-	"pipewire", NULL,
-	"bash", "-c", "dunst -conf ~/.config/dunst/dunstrc", NULL,
+	/*"bash", "-c", "xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock", NULL,*/
 	NULL /* terminate */
 };
 
@@ -96,12 +96,13 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "rofi", "-show", "drun", "-m", dmenumon, "-font", dmenufont, NULL };
+static const char *dmenucmd[] = { "rofi", "-show", "drun", "-font", dmenufont, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *closecmd[] = { "kill -HUP dwm", NULL };
-static const char *browsercmd[] = { "flatpak", "run", "io.github.zen_browser.zen", NULL };
+static const char *browsercmd[] = { "zen-browser", NULL };
 static const char *lockcmd[] = { "xset", "s", "activate", NULL };
 static const char *suspendcmd[] = { "loginctl", "suspend", NULL };
+static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -144,6 +145,7 @@ static const Key keys[] = {
 	{ MODKEY,			XK_b,	   spawn,	   {.v = browsercmd } },
 	{ MODKEY|ShiftMask,		XK_x,	   spawn,	   {.v = lockcmd } },
 	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   {.v = suspendcmd } },
+	{0,				XK_Print,  spawn,	   {.v = screenshotcmd } },
 };
 
 /* button definitions */
