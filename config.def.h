@@ -32,6 +32,9 @@ static const char *const autostart[] = {
 	"bash", "-c", "autorandr -c", NULL,
 	"xfce4-clipman", NULL,
 	"xfce4-power-manager", NULL,
+	"xfce4-screensaver", NULL,
+	"pasystray", NULL,
+	"nm-applet", NULL,
 	"bash", "-c", "/usr/lib/xfce4/notifyd/xfce4-notifyd", NULL,
 	"slstatus", NULL,
 	"bash", "-c", "feh --bg-scale ~/Pictures/Wallpaper/wallpaper-02-Ys--The-Oath-in-Felghana-2560x1440.jpg", NULL,
@@ -49,7 +52,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class	 instance    title       tags mask     isfloating   monitor */
-	{ "Thunderbird",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "thunderbird",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "discord",	  NULL,       NULL,       1 << 7,       0,           -1 },
 	{ "Antares",	  NULL,       NULL,       1 << 6,       0,           -1 },
 	{ "pavucontrol",  NULL,       NULL,       1 << 5,       0,           -1 },
@@ -100,8 +103,8 @@ static const char *dmenucmd[] = { "rofi", "-show", "drun", "-font", dmenufont, N
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *closecmd[] = { "kill -HUP dwm", NULL };
 static const char *browsercmd[] = { "zen-browser", NULL };
-static const char *lockcmd[] = { "xset", "s", "activate", NULL };
-static const char *suspendcmd[] = { "loginctl", "suspend", NULL };
+static const char *lockcmd[] = { "xfce4-screensaver-command", "-l", NULL };
+static const char *suspendcmd[] = { "systemctl", "suspend", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 
 static const Key keys[] = {
