@@ -9,14 +9,14 @@ static const unsigned int gappoh    = 5;       /* horiz outer gap between window
 static const unsigned int gappov    = 5;       /* vert outer gap between windows and screen edge */
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
-static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
+static const unsigned int systrayonleft = 1;    /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Iosevka Term SS05:size=10" };
-static const char dmenufont[]       = "Iosevka Term SS05:size=10";
+static const char *fonts[]          = { "IosevkaTerm Nerd Font Mono:size=10" };
+static const char dmenufont[]       = "IosevkaTerm Nerd Font Mono:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -33,13 +33,12 @@ static const char *const autostart[] = {
 	"xfce4-clipman", NULL,
 	"xfce4-power-manager", NULL,
 	"xfce4-screensaver", NULL,
-	"pasystray", NULL,
 	"nm-applet", NULL,
-	"bash", "-c", "/usr/lib/xfce4/notifyd/xfce4-notifyd", NULL,
 	"slstatus", NULL,
-	"bash", "-c", "nitrogen --restore", NULL,
+	"bash", "-c", "/usr/lib/xfce4/notifyd/xfce4-notifyd", NULL,
 	"bash", "-c", "picom --config ~/.config/picom/picom.conf", NULL,
-	/*"bash", "-c", "xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock", NULL,*/
+	"bash", "-c", "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1", NULL,
+	"bash", "-c", "nitrogen --restore", NULL,
 	NULL /* terminate */
 };
 
@@ -111,6 +110,7 @@ static const char *playercmd[] = { "playerctl", "play-pause", NULL };
 static const char *upvolcmd[] = {"pamixer", "--increase", "5", NULL};
 static const char *downvolcmd[] = {"pamixer", "--decrease", "5", NULL};
 static const char *mutevolcmd[] = {"pamixer", "--toggle-mute", NULL};
+static const char *brightnessupcmd[] = {"brightnessctl", "set", "+10%", NULL};
 
 
 #include <X11/XF86keysym.h>
@@ -161,6 +161,8 @@ static const Key keys[] = {
 	{0,				XF86XK_AudioRaiseVolume,	   spawn,	   {.v = upvolcmd   } },
 	{0,			        XF86XK_AudioLowerVolume,	   spawn,	   {.v = downvolcmd } },
 	{0,				XF86XK_AudioMute,		   spawn,	   {.v = mutevolcmd } },
+	{0,				XF86XK_MonBrightnessUp,		   spawn,	   {.v = brightnessupcmd } },
+
 
 };
 
