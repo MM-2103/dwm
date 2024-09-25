@@ -30,6 +30,7 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"bash", "-c", "autorandr -c", NULL,
+	"bash", "-c", "sleep 3", NULL,
 	"xfce4-clipman", NULL,
 	"xfce4-power-manager", NULL,
 	"xfce4-screensaver", NULL,
@@ -38,6 +39,7 @@ static const char *const autostart[] = {
 	"bash", "-c", "/usr/lib/xfce4/notifyd/xfce4-notifyd", NULL,
 	"bash", "-c", "picom --config ~/.config/picom/picom.conf", NULL,
 	"bash", "-c", "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1", NULL,
+	"bash", "-c", "dbus-update-activation-environment --all", NULL,
 	"bash", "-c", "nitrogen --restore", NULL,
 	NULL /* terminate */
 };
@@ -50,12 +52,12 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class	 instance    title       tags mask     isfloating   monitor */
-	{ "thunderbird",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "discord",	  NULL,       NULL,       1 << 7,       0,           -1 },
-	{ "Antares",	  NULL,       NULL,       1 << 6,       0,           -1 },
-	{ "pavucontrol",  NULL,       NULL,       1 << 5,       0,           -1 },
-	{ "youtube music",NULL,       NULL,       1 << 4,       0,           -1 },
+	/* class		 instance    title       tags mask     isfloating   monitor */
+	{ "thunderbird",	  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "discord",		  NULL,       NULL,       1 << 7,       0,           -1 },
+	{ "Antares",		  NULL,       NULL,       1 << 6,       0,           -1 },
+	{ "pavucontrol",	  NULL,       NULL,       1 << 5,       0,           -1 },
+	{ "youtube music",	  NULL,       NULL,       1 << 4,       0,           -1 },
 };
 
 /* layout(s) */
@@ -100,10 +102,10 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "rofi", "-show", "drun", "-font", dmenufont, NULL };
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { "wezterm", NULL };
 static const char *closecmd[] = { "kill -HUP dwm", NULL };
 static const char *browsercmd[] = { "zen-browser", NULL };
-static const char *lockcmd[] = { "xfce4-screensaver-command", "-l", NULL };
+static const char *lockcmd[] = { "betterlockscreen", "-l", NULL };
 static const char *suspendcmd[] = { "systemctl", "suspend", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 static const char *playercmd[] = { "playerctl", "play-pause", NULL };
