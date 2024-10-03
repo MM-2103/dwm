@@ -21,7 +21,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#1F1F28";
+static const char col_cyan[]        = "#161616";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -36,7 +36,7 @@ static const char *const autostart[] = {
 	"xfce4-screensaver", NULL,
 	"nm-applet", NULL,
 	"slstatus", NULL,
-	"bash", "-c", "/usr/lib/xfce4/notifyd/xfce4-notifyd", NULL,
+	"bash", "-c", "dunst -config ~/.config/dunst/dunstrc", NULL,
 	"bash", "-c", "picom --config ~/.config/picom/picom.conf", NULL,
 	"bash", "-c", "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1", NULL,
 	"bash", "-c", "dbus-update-activation-environment --all", NULL,
@@ -102,7 +102,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "rofi", "-show", "drun", "-font", dmenufont, NULL };
-static const char *termcmd[]  = { "wezterm", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 static const char *closecmd[] = { "kill -HUP dwm", NULL };
 static const char *browsercmd[] = { "zen-browser", NULL };
 static const char *lockcmd[] = { "betterlockscreen", "-l", NULL };
