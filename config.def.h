@@ -40,7 +40,7 @@ static const char *const autostart[] = {
 	"bash", "-c", "picom --config ~/.config/picom/picom.conf", NULL,
 	"bash", "-c", "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1", NULL,
 	"bash", "-c", "dbus-update-activation-environment --all", NULL,
-	"bash", "-c", "nitrogen --restore", NULL,
+	"bash", "-c", "/home/mm-2103/.config/suckless/dwm/autostart.sh", NULL,
 	NULL /* terminate */
 };
 
@@ -109,9 +109,9 @@ static const char *lockcmd[] = { "betterlockscreen", "-l", NULL };
 static const char *suspendcmd[] = { "systemctl", "suspend", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 static const char *playercmd[] = { "playerctl", "play-pause", NULL };
-static const char *upvolcmd[] = {"pamixer", "--increase", "5", NULL};
-static const char *downvolcmd[] = {"pamixer", "--decrease", "5", NULL};
-static const char *mutevolcmd[] = {"pamixer", "--toggle-mute", NULL};
+static const char *upvolcmd[] = {"vol-notif.sh", "--increase", "5", NULL};
+static const char *downvolcmd[] = {"vol-notif.sh", "--decrease", "5", NULL};
+static const char *mutevolcmd[] = {"vol-notif.sh", "--toggle-mute", NULL};
 static const char *brightnessupcmd[] = {"brightnessctl", "set", "+10%", NULL};
 
 
