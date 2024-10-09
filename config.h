@@ -29,17 +29,11 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
-	"bash", "-c", "autorandr -c", NULL,
-	"bash", "-c", "sleep 3", NULL,
 	"xfce4-clipman", NULL,
 	"xfce4-power-manager", NULL,
 	"xfce4-screensaver", NULL,
 	"nm-applet", NULL,
 	"slstatus", NULL,
-	"bash", "-c", "dunst -config ~/.config/dunst/dunstrc", NULL,
-	"bash", "-c", "picom --config ~/.config/picom/picom.conf", NULL,
-	"bash", "-c", "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1", NULL,
-	"bash", "-c", "dbus-update-activation-environment --all", NULL,
 	"bash", "-c", "/home/mm-2103/.config/suckless/dwm/autostart.sh", NULL,
 	NULL /* terminate */
 };
@@ -57,7 +51,9 @@ static const Rule rules[] = {
 	{ "discord",		  NULL,       NULL,       1 << 7,       0,           -1 },
 	{ "Antares",		  NULL,       NULL,       1 << 6,       0,           -1 },
 	{ "pavucontrol",	  NULL,       NULL,       1 << 5,       0,           -1 },
-	{ "youtube music",	  NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "YouTube Music",	  NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "bruno",		  NULL,       NULL,       1 << 3,       0,           -1 },
+
 };
 
 /* layout(s) */
