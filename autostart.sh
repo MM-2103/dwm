@@ -1,4 +1,5 @@
 #!/bin/bash
+sleep 3
 autorandr -c &
 dunst -config ~/.config/dunst/dunstrc &
 picom --config ~/.config/picom/picom.conf &
